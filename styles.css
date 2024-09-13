@@ -1,3 +1,9 @@
+:root {
+  --building-color1: #aa80ff;
+  --building-color2: #66cc99;
+  --building-color3: #cc6699;
+}
+
 * {
   border: 1px solid black; /*sementara kasih border biar keliatan bangunannya*/
   box-sizing: border-box;
@@ -24,10 +30,12 @@ body {
   flex-direction: column;
   align-items: center;
   /*--building-color1: #999;*/ /*declaring variable in CSS*/
-  --building-color1: #aa80ff;
+  /*--building-color1: #aa80ff;*/
   /*variable is useful so that u can change the value of the color anytime, and every single element associated with it will also get changed*/
-  --building-color2: #66cc99;
+  /*--building-color2: #66cc99;8?
   /*NOTE: in CSS variable, the variable that is putted on a element can only be used by the descendant element or the element itself, so in this case, if we try to use --building-color2 in .bb2 class, it won't work because .bb2 is not the descendant of .bb1*/
+  /*--building-color3: #cc6699;*/
+  /*to overcome variables can't be used for any element, we need to declare the variable inside the :root selector, that way, we can finally use any variables anywhere*/
 }
 .bb1a {
   width: 70%;
@@ -62,10 +70,47 @@ body {
 .bb3 {
   width: 10%;
   height: 55%;
+  background-color: var(--building-color3, pink);
 }
 
 .bb4 {
   width: 11%;
   height: 58%;
+  background-color: var(--building-color4); /*bcoz the variable is now declared on the :root selector, we don't need the fallback-values anymore*/
+}
+
+.foreground-buildings {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.fb1 {
+  width: 10%;
+  height: 60%;
+}
+.fb2 {
+  width: 10%;
+  height: 40%;
+}
+.fb3 {
+  width: 10%;
+  height: 35%;
+}
+.fb4 {
+  width: 8%;
+  height: 45%;
+}
+.fb5 {
+  width: 10%;
+  height: 33%;
+}
+.fb6 {
+  width: 9%;
+  height: 38%;
 }
     
