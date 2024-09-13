@@ -1,0 +1,71 @@
+* {
+  border: 1px solid black; /*sementara kasih border biar keliatan bangunannya*/
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /*kalo ada yang terlalu panjang kebawah atau kekana akan di hidden agar scrollbar ga keliatan*/
+}
+
+.background-buildings {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.bb1 {
+  width: 10%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*--building-color1: #999;*/ /*declaring variable in CSS*/
+  --building-color1: #aa80ff;
+  /*variable is useful so that u can change the value of the color anytime, and every single element associated with it will also get changed*/
+  --building-color2: #66cc99;
+  /*NOTE: in CSS variable, the variable that is putted on a element can only be used by the descendant element or the element itself, so in this case, if we try to use --building-color2 in .bb2 class, it won't work because .bb2 is not the descendant of .bb1*/
+}
+.bb1a {
+  width: 70%;
+  height: 10%;
+  background-color: var(--building-color1); /*using the variable*/
+}
+.bb1b {
+  width: 80%;
+  height: 10%;
+  background-color: var(--building-color1);
+}
+
+.bb1c {
+  width: 90%;
+  height: 10%;
+  background-color: var(--building-color1);
+}
+
+.bb1d {
+  width: 100%;
+  height: 70%;
+  background-color: var(--building-color1);
+}
+
+.bb2 {
+  width: 10%;
+  height: 50%;
+  /*background-color: var(--building-color2);*/ /*this won't work because there is a problem with the variable, so to overcome it, we add fallback-value (btw, the problem is described on the declaration of the --building-color2 variable*/
+  background-color: var(--building-color2, green); /*green is the fallback-value used when the --building-color2 has a problem (.bb2 is not the descendant of .bb1, so .bb2 can't use the --building-color2 variable)*/
+}
+
+.bb3 {
+  width: 10%;
+  height: 55%;
+}
+
+.bb4 {
+  width: 11%;
+  height: 58%;
+}
+    
