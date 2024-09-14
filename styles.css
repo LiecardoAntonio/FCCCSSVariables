@@ -161,4 +161,8 @@ body {
   height: 38%;
   background-color: var(--building-color3);
 }
+
+.empty-div {
+  background-color: red;
+}
     
