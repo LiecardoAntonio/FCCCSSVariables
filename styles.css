@@ -3,14 +3,14 @@
   --building-color2: #66cc99;
   --building-color3: #cc6699;
   --building-color4: #538cc6;
-  --window-color1: black;
+  --window-color1: #bb99ff;
   --window-color2: #8cd9b3;
   --window-color3: #d98cb3;
   --window-color4: #8cb3d9;
 }
 
 * {
-  border: 1px solid black; /*sementara kasih border biar keliatan bangunannya*/
+  /*border: 1px solid black;*/ /*sementara kasih border biar keliatan bangunannya*/
   box-sizing: border-box;
 }
 
@@ -40,6 +40,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.sky {
+  /*the gradient is ellips shaped*/
+  background: radial-gradient(
+    circle closest-corner at 15% 15%, /*ini bikin direction dari sky background-nya di kiri atas, kalau mau, bisa coba comment directionnya biar bisa liat background-nya ditengah*/
+    #ffcf33 0% 20%,
+    #ffff66 21%,
+    #bbeeff 100%
+  ); /*this make it looks like a sunny sky*/
 }
 
 /*BACKGROUND BUILDINGS - "bb" stands for "background building"*/
@@ -123,10 +133,11 @@ body {
   height: 55%;
   background-color: var(--building-color3, pink);
   background: repeating-linear-gradient(
-    90deg, 
-    var(--building-color3), 
-    var(--building-color3), 
-    var(--window-color3) 15%);
+      90deg, 
+      var(--building-color3), 
+      var(--building-color3), 
+      var(--window-color3) 15%
+    );
 }
 
 .bb4 {
@@ -183,9 +194,9 @@ body {
   height: 80%;
   /*Double linear-gradient*/
   background: repeating-linear-gradient(
-    90deg, 
-    var(--building-color4) 0% 10%, /*0-10 warna ini*/
-    transparent 10% 15% /*10-15 warna ini (on-repeat)*/
+      90deg, 
+      var(--building-color4) 0% 10%, /*0-10 warna ini*/
+      transparent 10% 15% /*10-15 warna ini (on-repeat)*/
     ),
     repeating-linear-gradient(
       var(--building-color4) 0% 10%,
@@ -220,32 +231,107 @@ body {
 .fb3 {
   width: 10%;
   height: 35%;
+}
+
+.fb3a {
+  width: 80%;
+  height: 15%;
   background-color: var(--building-color1);
+}
+
+.fb3b {
+  width: 100%;
+  height: 35%;
+  background-color: var(--building-color1); 
+}
+
+.fb3-window {
+  width: 25%;
+  height: 80%;
+  background-color: var(--window-color1);
 }
 
 .fb4 {
   width: 8%;
   height: 45%;
-  background-color: var(--building-color1);
   position: relative;
   left: 10%;
+}
+
+.fb4a {
+  border-top: 5vh solid transparent;
+  border-left: 8vw solid var(--building-color1);
+}
+
+.fb4b {
+  width: 100%;
+  height: 89%;
+  background-color: var(--building-color1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fb4-window {
+  width: 30%;
+  height: 10%;
+  border-radius: 50%;
+  background-color: var(--window-color1);
+  margin: 10%;
 }
 
 .fb5 {
   width: 10%;
   height: 33%;
-  background-color: var(--building-color2);
+  /* background-color: var(--building-color2); */
   position: relative;
   right: 10%;
+  background: repeating-linear-gradient(
+    var(--building-color2) 0% 5%,
+    transparent 5% 10%
+  ),
+  repeating-linear-gradient(
+    90deg,
+    var(--building-color2) 0% 12%,
+    var(--window-color2) 12% 44%
+  );
 }
 
 .fb6 {
   width: 9%;
   height: 38%;
-  background-color: var(--building-color3);
+  /* background-color: var(--building-color3); */
+  background: repeating-linear-gradient(
+    90deg,
+    var(--building-color3) 0% 10%,
+    transparent 10% 30%
+  ),
+  repeating-linear-gradient(
+    var(--building-color3) 0% 10%,
+    var(--window-color3) 10% 30%
+  );
 }
 
-.empty-div {
-  background-color: red;
+@media (max-width: 1000px) {
+  :root {
+    --building-color1: #000 ;
+    --building-color2: #000 ;
+    --building-color3: #000 ;
+    --building-color4: #000 ;
+    --window-color1: #777;
+    --window-color2: #777;
+    --window-color3: #777;
+    --window-color4: #777;
+  }
+
+  .sky {
+    background: radial-gradient(
+      closest-corner circle at 15% 15%,
+      #ccc,
+      #ccc 20%,
+      #445 21%,
+      #223 100%
+      /*turn into night*/
+    );
+  }
 }
     
